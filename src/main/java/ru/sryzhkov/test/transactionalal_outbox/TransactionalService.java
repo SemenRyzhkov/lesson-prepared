@@ -4,6 +4,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+
+//Как это работает
+//Что не так?
+
+
 @Service
 public class TransactionalService {
 
@@ -17,16 +22,13 @@ public class TransactionalService {
 
     @Transactional
     public void saveToDbAndKafka(String data, String topic) {
-        // Сохраняем данные в базу
         jdbcTemplate.update("INSERT INTO your_table (data) VALUES (?)", data);
 
-        // Отправляем сообщение в Kafka
-        kafkaTemplate.send(topic, data)
-                .addCallback(
-                        result -> {},
-                        ex -> { throw new RuntimeException("Failed to send message to Kafka", ex); }
-                );
+        kafkaTemplate.send(topic, data);
 
-        // Если произойдет ошибка после этого места, оба действия откатятся
     }
 }
+
+
+
+
