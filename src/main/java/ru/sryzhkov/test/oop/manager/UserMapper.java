@@ -1,6 +1,7 @@
-package ru.sryzhkov.test.manager;
+package ru.sryzhkov.test.oop.manager;
 
-import ru.sryzhkov.test.UserManager;
+import ru.sryzhkov.test.oop.UserManager;
+
 
 public class UserMapper {
     public UserManager.User mapToUser(String name, UserManager.UserDetailsDto dto) {

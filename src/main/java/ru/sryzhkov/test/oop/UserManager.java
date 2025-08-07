@@ -1,4 +1,4 @@
-package ru.sryzhkov.test;
+package ru.sryzhkov.test.oop;
 
 import lombok.Data;
 import org.springframework.web.client.RestTemplate;
@@ -47,7 +47,7 @@ public class UserManager {
     /**
      * Возвращает пользователей в формате DTO.
      */
-    public List<UserDto> getUsersDto() {
+    private List<UserDto> getUsersDto() {
         return users.stream()
                 .map(this::mapToUserDto)
                 .collect(Collectors.toList());

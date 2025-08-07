@@ -1,6 +1,6 @@
-package ru.sryzhkov.test.manager.extended;
+package ru.sryzhkov.test.oop.manager.extended;
 
-import ru.sryzhkov.test.UserManager;
+import ru.sryzhkov.test.oop.UserManager;
 
 public class SocialUserSource implements UserSource {
     @Override

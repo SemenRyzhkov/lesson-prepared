@@ -1,9 +1,9 @@
-package ru.sryzhkov.test.manager.extended;
+package ru.sryzhkov.test.oop.manager.extended;
 
-import ru.sryzhkov.test.manager.UserMapper;
-import ru.sryzhkov.test.manager.UserNameFormatter;
-import ru.sryzhkov.test.manager.UserRepository;
-import ru.sryzhkov.test.manager.UserValidator;
+import ru.sryzhkov.test.oop.manager.UserMapper;
+import ru.sryzhkov.test.oop.manager.UserNameFormatter;
+import ru.sryzhkov.test.oop.manager.UserRepository;
+import ru.sryzhkov.test.oop.manager.UserValidator;
 
 
 
@@ -32,27 +32,27 @@ public class UserManager {
     private final UserNameFormatter formatter;
     private final UserMapper mapper;
     private final UserRepository repository;
-    private final UserSource userSource; // Зависимость через интерфейс
+    private final StrategyFabric fabric; // Зависимость через интерфейс
 
     public UserManager(
             UserValidator validator,
             UserNameFormatter formatter,
             UserMapper mapper,
             UserRepository repository,
-            UserSource userSource // Инъекция реализации
+            StrategyFabric fabric // Инъекция реализации
     ) {
         this.validator = validator;
         this.formatter = formatter;
         this.mapper = mapper;
         this.repository = repository;
-        this.userSource = userSource;
+        this.fabric = fabric;
     }
 
     public void addUser(String name) {
         validator.validate(name);
         String formattedName = formatter.format(name);
-        ru.sryzhkov.test.UserManager.UserDetailsDto dto = userSource.getUserDetails(formattedName); // Используем интерфейс
-        ru.sryzhkov.test.UserManager.User user = mapper.mapToUser(formattedName, dto);
+        ru.sryzhkov.test.oop.UserManager.UserDetailsDto dto = fabric.getUserSource(formattedName).getUserDetails(formattedName); // Используем интерфейс
+        ru.sryzhkov.test.oop.UserManager.User user = mapper.mapToUser(formattedName, dto);
         repository.save(user);
     }
 }

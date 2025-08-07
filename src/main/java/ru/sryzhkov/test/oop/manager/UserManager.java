@@ -1,4 +1,4 @@
-package ru.sryzhkov.test.manager;
+package ru.sryzhkov.test.oop.manager;
 
 import java.util.List;
 
@@ -33,12 +33,12 @@ public class UserManager {
     public void addUser(String name) {
         validator.validate(name);
         String formattedName = formatter.format(name);
-        ru.sryzhkov.test.UserManager.UserDetailsDto dto = apiClient.fetchUserDetails(formattedName);
-        ru.sryzhkov.test.UserManager.User user = mapper.mapToUser(formattedName, dto);
+        ru.sryzhkov.test.oop.UserManager.UserDetailsDto dto = apiClient.fetchUserDetails(formattedName);
+        ru.sryzhkov.test.oop.UserManager.User user = mapper.mapToUser(formattedName, dto);
         repository.save(user);
     }
 
-    public List<ru.sryzhkov.test.UserManager.UserDto> getAllUsers() {
+    public List<ru.sryzhkov.test.oop.UserManager.UserDto> getAllUsers() {
         return repository.findAll()
                 .stream()
                 .map(mapper::mapToUserDto)

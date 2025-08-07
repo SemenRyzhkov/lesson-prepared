@@ -1,7 +1,7 @@
-package ru.sryzhkov.test.manager.extended;
+package ru.sryzhkov.test.oop.manager.extended;
 
-import ru.sryzhkov.test.UserManager;
-import ru.sryzhkov.test.manager.UserApiClient;
+import ru.sryzhkov.test.oop.UserManager;
+import ru.sryzhkov.test.oop.manager.UserApiClient;
 
 public class ApiUserSource implements UserSource {
     private  UserApiClient apiClient;

@@ -1,4 +1,4 @@
-package ru.sryzhkov.test.manager;
+package ru.sryzhkov.test.oop.manager;
 
 public class UserNameFormatter {
     public String format(String name) {

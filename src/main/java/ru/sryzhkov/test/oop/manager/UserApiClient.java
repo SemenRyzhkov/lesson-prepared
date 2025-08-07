@@ -1,7 +1,7 @@
-package ru.sryzhkov.test.manager;
+package ru.sryzhkov.test.oop.manager;
 
 import org.springframework.web.client.RestTemplate;
-import ru.sryzhkov.test.UserManager;
+import ru.sryzhkov.test.oop.UserManager;
 
 public class UserApiClient {
     private final RestTemplate restTemplate;

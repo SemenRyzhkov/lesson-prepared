@@ -1,4 +1,4 @@
-package ru.sryzhkov.test;
+package ru.sryzhkov.test.oop;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.client.RestTemplate;

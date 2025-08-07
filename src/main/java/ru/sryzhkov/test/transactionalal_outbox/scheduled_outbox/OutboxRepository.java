@@ -22,4 +22,6 @@ public interface OutboxRepository extends JpaRepository<OutboxMessage, UUID> {
     @Transactional
     @Query("UPDATE OutboxMessage m SET m.status = 'FAILED', m.attempts = m.attempts + 1 WHERE m.id = ?1")
     void markAsFailed(UUID id);
+
+
 }

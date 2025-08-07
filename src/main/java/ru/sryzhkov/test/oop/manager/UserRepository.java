@@ -1,5 +1,5 @@
-package ru.sryzhkov.test.manager;
-import ru.sryzhkov.test.UserManager;
+package ru.sryzhkov.test.oop.manager;
+import ru.sryzhkov.test.oop.UserManager;
 
 import java.util.ArrayList;
 import java.util.List;

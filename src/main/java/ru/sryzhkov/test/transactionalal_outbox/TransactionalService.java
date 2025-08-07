@@ -7,8 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 //Как это работает
 //Что не так?
-
-
 @Service
 public class TransactionalService {
 
@@ -23,7 +21,6 @@ public class TransactionalService {
     @Transactional
     public void saveToDbAndKafka(String data, String topic) {
         jdbcTemplate.update("INSERT INTO your_table (data) VALUES (?)", data);
-
         kafkaTemplate.send(topic, data);
 
     }
